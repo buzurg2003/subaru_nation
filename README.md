@@ -1,5 +1,5 @@
 # subaru_nation
 
-A new Flutter project.
+A Car Rental Flutter App project.
 
 ## Getting Started
