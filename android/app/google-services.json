@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "364810956866",
+    "project_id": "subaru-nation",
+    "storage_bucket": "subaru-nation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364810956866:android:42593c8a9173c32b213ddb",
+        "android_client_info": {
+          "package_name": "com.programmer_2003.subaru_nation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWYhsRwt0yXvU7a1zNGfD-NjTNPd5s1q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
