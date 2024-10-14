@@ -35,3 +35,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// ! https://console.firebase.google.com/u/0/project/subaru-nation/authentication/providers
+// ! https://firebase.google.com/docs/auth/flutter/start

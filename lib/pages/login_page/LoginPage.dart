@@ -203,12 +203,43 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildForgotPasswordButton() {
     return TextButton(
       onPressed: () {
-        // Add forgot password logic
+        _showForgotPasswordDialog(context);
       },
       child: const Text(
         'Forgot Password?',
         style: TextStyle(color: Colors.white),
       ),
+    );
+  }
+
+  // Show Forgot Password Dialog
+  void _showForgotPasswordDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Enter Email'),
+          content: TextField(
+            decoration: const InputDecoration(
+              hintText: 'Enter your email'
+            ),
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Send'),
+            ),
+          ],
+        );
+      },
     );
   }
 

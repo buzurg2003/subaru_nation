@@ -59,4 +59,5 @@ class DefaultFirebaseOptions {
     projectId: 'subaru-nation',
     storageBucket: 'subaru-nation.appspot.com',
   );
+
 }
