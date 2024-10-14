@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:subaru_nation/pages/home_page/HomePage.dart';
-import 'package:subaru_nation/pages/login_page/LoginPage.dart';
-import 'package:subaru_nation/pages/signup_page/SignUpPage.dart';
+import 'package:subaru_nation/features/auth/presentation/pages/home_page/HomePage.dart';
+import 'package:subaru_nation/features/auth/presentation/pages/login_page/LoginPage.dart';
+import 'package:subaru_nation/features/auth/presentation/pages/signup_page/SignUpPage.dart';
 import 'package:subaru_nation/theme/theme.dart';
 
 import 'package:firebase_core/firebase_core.dart';

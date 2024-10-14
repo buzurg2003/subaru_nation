@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:subaru_nation/pages/home_page/HomePage.dart';
+import 'package:subaru_nation/features/auth/presentation/pages/home_page/HomePage.dart';
 
 // Login Page Widget
 class LoginPage extends StatefulWidget {
