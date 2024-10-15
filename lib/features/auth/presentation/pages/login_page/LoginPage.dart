@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
+import 'package:subaru_nation/features/auth/presentation/components/my_text_field.dart';
+import 'package:subaru_nation/features/auth/presentation/components/my_button.dart';
 import 'package:subaru_nation/features/auth/presentation/pages/home_page/HomePage.dart';
 
-// Login Page Widget
+// ! Login Page Widget
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -14,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   bool obscureText = true;
 
-  // Constants
+  // ! Constants
   static const double _horizontalPadding = 16.0;
   static const double _inputFieldSpacing = 16.0;
   static const double _socialIconSize = 70.0;
@@ -31,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Login Form Widget
+  // ! Login Form Widget
   Widget _buildLoginForm(BuildContext context) {
     return Center(
       child: Padding(
@@ -54,7 +57,11 @@ class _LoginPageState extends State<LoginPage> {
                 TextInputType.emailAddress
               ),
               const SizedBox(height: _inputFieldSpacing),
-              _buildPasswordInputField(),
+              _buildPasswordInputField(
+                passwordController,
+                'Password',
+                TextInputType.visiblePassword
+              ),
               const SizedBox(height: _inputFieldSpacing),
               _buildLoginButton(context),
               const SizedBox(height: _inputFieldSpacing),
@@ -72,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Background Image Widget
+  // ! Background Image Widget
   Widget _buildBackgroundImage() {
     return Positioned.fill(
       child: Image.asset(
@@ -82,70 +89,41 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Text Input Field Widget
+  // ! Text Input Field Widget
   Widget _buildTextInputField(
     TextEditingController controller, 
     String hintText, 
     TextInputType inputType
   ) {
-    return TextField(
-      controller: controller,
-      style: const TextStyle(color: Colors.white),
-      keyboardType: inputType,
-      decoration: InputDecoration(
-        hintText: hintText,
-        labelStyle: const TextStyle(color: Colors.white),
-        filled: true,
-        fillColor: Colors.black.withOpacity(0.5),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
+    return MyTextField(
+      controller: controller, 
+      hintText: hintText, 
+      obscureText: false  
     );
   }
 
-  // Password Input Field Widget
-  Widget _buildPasswordInputField() {
-    return TextField(
-      controller: passwordController,
-      obscureText: obscureText,
-      style: const TextStyle(color: Colors.white),
-      decoration: InputDecoration(
-        hintText: 'Password',
-        labelStyle: const TextStyle(color: Colors.white),
-        filled: true,
-        fillColor: Colors.black.withOpacity(0.5),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        suffixIcon: IconButton(
-          icon: Icon(
-            obscureText ? Icons.visibility_off : Icons.visibility,
-            color: Colors.white,
-          ),
-          onPressed: () => setState(() => obscureText = !obscureText),
-        ),
-      ),
+  // ! Password Input Field Widget
+  Widget _buildPasswordInputField(
+    TextEditingController controller,
+    String hintText,
+    TextInputType inputType
+  ) {
+    return MyTextField(
+      controller: controller, 
+      hintText: hintText,
+      obscureText: true,
     );
   }
 
-  // Login Button Widget
+  // ! Login Button Widget
   Widget _buildLoginButton(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: () => _handleLogin(context),
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        child: const Text('Login'),
-      ),
+    return MyButton(
+      text: 'Login',
+      onTap: () => _handleLogin(context),
     );
   }
 
-  // Handle Login Logic
+  // ! Handle Login Logic
   void _handleLogin(BuildContext context) {
     final email = emailController.text;
     final password = passwordController.text;
@@ -161,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  // Show Error Dialog
+  // ! Show Error Dialog
   void _showLoginErrorDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -180,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Show Empty Login and/or Password Dialog
+  // ! Show Empty Login and/or Password Dialog
   void _showEmptyLoginAndPasswordDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -199,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Forgot Password Button Widget
+  // ! Forgot Password Button Widget
   Widget _buildForgotPasswordButton() {
     return TextButton(
       onPressed: () {
@@ -212,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Show Forgot Password Dialog
+  // ! Show Forgot Password Dialog
   void _showForgotPasswordDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -243,11 +221,10 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Sign Up Button Widget
+  // ! Sign Up Button Widget
   Widget _buildSignUpButton() {
     return TextButton(
       onPressed: () {
-        // Navigate to SignUpPage
         Navigator.pushNamed(context, '/signup_page');
       },
       child: const Text(
@@ -258,7 +235,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-// Logo Widget
+// ! Logo Widget
 class _Logo extends StatelessWidget {
   const _Logo();
 
@@ -274,7 +251,7 @@ class _Logo extends StatelessWidget {
   }
 }
 
-// Welcome Text Widget
+// ! Welcome Text Widget
 class _WelcomeText extends StatelessWidget {
   const _WelcomeText();
 
@@ -300,7 +277,7 @@ class _WelcomeText extends StatelessWidget {
   }
 }
 
-// Or Sign In With Text Widget
+// ! Or Sign In With Text Widget
 class _OrSignInWithText extends StatelessWidget {
   const _OrSignInWithText();
 
@@ -313,7 +290,7 @@ class _OrSignInWithText extends StatelessWidget {
   }
 }
 
-// Social Login Row Widget
+// ! Social Login Row Widget
 class _SocialLoginRow extends StatelessWidget {
   const _SocialLoginRow();
 
